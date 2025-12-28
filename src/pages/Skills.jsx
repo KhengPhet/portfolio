@@ -11,67 +11,43 @@ const skills = [
     { name: "Express js", percent: 65, color: "text-gray-500" },
 ]
 
+const SkillBar = ({ name, percent }) => {
+  return (
+    <div className="space-y-2">
+      {/* Label */}
+      <div className="flex justify-between text-sm font-medium">
+        <span>{name}</span>
+        <span>{percent}%</span>
+      </div>
 
-const SkillCard = ({ name, percent, color }) => {
-    return (
-        <div className="flex flex-col items-center text-center">
-            <div className="relative w-28 h-28 mb-4">
-                <svg className="w-full h-full rotate-[-90deg]">
-                    {/* Background */}
-                    <circle
-                        cx="56"
-                        cy="56"
-                        r="50"
-                        stroke="currentColor"
-                        strokeWidth="8"
-                        fill="transparent"
-                        className="text-gray-700"
-                    />
-                    {/* Progress */}
-                    <circle
-                        cx="56"
-                        cy="56"
-                        r="50"
-                        stroke="currentColor"
-                        strokeWidth="8"
-                        fill="transparent"
-                        strokeDasharray="314"
-                        strokeDashoffset={314 - (314 * percent) / 100}
-                        className={color}
-                        strokeLinecap="round"
-                    />
-                </svg>
-
-                <span className={`absolute inset-0 flex items-center justify-center font-bold ${color}`}>
-                    {percent}%
-                </span>
-            </div>
-
-            <h4 className="text-lg font-semibold">{name}</h4>
-            <p className="text-sm text-gray-400 mt-2">
-                Modern & professional experience
-            </p>
-        </div>
-    );
+      {/* Bar */}
+      <div className="w-full h-2 bg-gray-700 rounded-full overflow-hidden">
+        <div
+          className="h-full bg-cyan-400 rounded-full transition-all duration-700"
+          style={{ width: `${percent}%` }}
+        />
+      </div>
+    </div>
+  );
 };
-
 const Skills = () => {
     return (
         <section id="skills" className="py-24 bg-[#061826] text-white">
-            <div className="max-w-7xl mx-auto px-6">
+      <div className="max-w-5xl mx-auto px-6">
 
-                <h2 className="text-4xl font-bold text-center mb-16">
-                    My <span className="text-cyan-400">Skills</span>
-                </h2>
+        <h2 className="text-4xl font-bold text-center mb-16">
+          My <span className="text-cyan-400">Skills</span>
+        </h2>
 
-                <div className="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-3 lg:grid-cols-5 gap-12">
-                    {skills.map((skill) => (
-                        <SkillCard key={skill.name} {...skill} />
-                    ))}
-                </div>
+        {/* Responsive grid */}
+        <div className="grid grid-cols-1 md:grid-cols-2 gap-8">
+          {skills.map((skill) => (
+            <SkillBar key={skill.name} {...skill} />
+          ))}
+        </div>
 
-            </div>
-        </section>
+      </div>
+    </section>
     );
 };
 

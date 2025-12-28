@@ -23,7 +23,7 @@ const Navigations = () => {
   const navLinkClass = ({ isActive }) =>
     `block py-2 transition ${
       isActive
-        ? "text-yellow-400 underline"
+        ? "text-cyan-400 underline"
         : "text-white hover:text-blue-400"
     }`;
 
@@ -42,7 +42,7 @@ const Navigations = () => {
         {/* Logo */}
         <div
           className={`text-xl font-semibold transition-colors ${
-            scrolled ? "text-yellow-400" : "text-white"
+            scrolled ? "text-cyan-400" : "text-white"
           }`}
         >
           KHENG PHET
