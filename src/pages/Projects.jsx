@@ -5,9 +5,9 @@ const projects = [
     title: "Portfolio Website",
     description:
       "Personal portfolio website built with React and Tailwind CSS showcasing my skills and projects.",
-    image: "/projects/project1.png",
+    image: "portfolio.png",
     tech: ["React", "Tailwind CSS"],
-    live: "#",
+    live: "https://portfolio-hzb2.vercel.app",
     github: "#",
   },
   {
@@ -101,7 +101,6 @@ const Projects = () => {
             </div>
           ))}
         </div>
-
       </div>
     </section>
   );
